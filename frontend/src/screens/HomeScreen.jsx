@@ -1,63 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Row, Col } from "react-bootstrap";
 import Product from "../components/Product";
-const HomeScreen = (
 
-) => {
-  let products = [
-    {
-      _id: "1",
-      name: "Airpods Wereless Bluethooth Headphones",
-      image: "/images/airpods.jpg",
-      description:
-        "lorem5akhosdhoihjdao;jgd;osj;ajd;jaopjsdo;jf;ojdsa;ojsdoihgoia;dh",
-      brand: "Apple",
-      category: "Electronics",
-      price: 89.9,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 12,
-    },
-    {
-      _id: "1",
-      name: "Airpods Wereless Bluethooth Headphones",
-      image: "/images/airpods.jpg",
-      description:
-        "lorem5akhosdhoihjdao;jgd;osj;ajd;jaopjsdo;jf;ojdsa;ojsdoihgoia;dh",
-      brand: "Apple",
-      category: "Electronics",
-      price: 89.9,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 12,
-    },
-    {
-      _id: "1",
-      name: "Airpods Wereless Bluethooth Headphones",
-      image: "/images/airpods.jpg",
-      description:
-        "lorem5akhosdhoihjdao;jgd;osj;ajd;jaopjsdo;jf;ojdsa;ojsdoihgoia;dh",
-      brand: "Apple",
-      category: "Electronics",
-      price: 89.9,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 12,
-    },
-    {
-      _id: "1",
-      name: "Airpods Wereless Bluethooth Headphones",
-      image: "/images/airpods.jpg",
-      description:
-        "lorem5akhosdhoihjdao;jgd;osj;ajd;jaopjsdo;jf;ojdsa;ojsdoihgoia;dh",
-      brand: "Apple",
-      category: "Electronics",
-      price: 89.9,
-      countInStock: 10,
-      rating: 4.5,
-      numReviews: 12,
-    },
-  ];
+const HomeScreen = () => {
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const { data } = await axios.get("/api/products");
+
+      setProducts(data);
+    };
+    fetchProducts();
+  }, []);
   return (
     <>
       <h1>Latest Product</h1>
