@@ -1,6 +1,7 @@
 import exp from "constants";
 import express from "express";
 import dotenv from "dotenv";
+import cookieParser from "cookie-parser";
 dotenv.config();
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/errorMiddleware.js";
@@ -15,6 +16,9 @@ const port = process.env.PORT;
 connectDB();
 
 const app = express();
+
+// Cookie parser middleware
+app.use(cookieParser());
 
 // Body parser middleware
 app.use(express.json());
