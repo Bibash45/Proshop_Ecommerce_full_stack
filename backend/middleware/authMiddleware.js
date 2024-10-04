@@ -15,7 +15,7 @@ export const protect = asyncHandler(async (req, res, next) => {
 
       req.user = await User.findById(decode.userId).select("-password");
 
-      next();
+      // next()
     } catch (error) {
       console.error(error);
       res.status(401);
