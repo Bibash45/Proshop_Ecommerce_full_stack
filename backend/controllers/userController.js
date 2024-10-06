@@ -8,6 +8,7 @@ import generateToken from "../utils/generateToken.js";
 // @access  Public
 const authUser = asyncHandler(async (req, res) => {
   const { email, password } = req.body;
+  console.log("auth");
 
   const user = await User.findOne({ email });
 
@@ -101,7 +102,8 @@ const getUserProfile = asyncHandler(async (req, res) => {
 // @route   PUT/api/users/profile
 // @access  Private
 const updateUserProfile = asyncHandler(async (req, res) => {
-
+  console.log("user profile");
+  
   const user = await User.findById(req.user._id);
 
   if (user) {
@@ -111,7 +113,6 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     if (req.body.password) {
       user.password = req.body.password;
     }
-
 
     const updatedUser = await user.save();
 
