@@ -8,7 +8,6 @@ import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { useCreateOrderMutation } from "../slices/ordersApiSlice";
 import { clearCartItems } from "../slices/cartSlice";
-import { LinkContainer } from "react-router-bootstrap";
 
 const PlaceOrderScreen = () => {
   const navigate = useNavigate();

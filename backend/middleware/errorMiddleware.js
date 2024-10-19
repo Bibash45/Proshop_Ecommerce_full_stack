@@ -1,5 +1,5 @@
 const notFound = (req, res, next) => {
-  const error = new Error(`Nor Found - ${req.originalURL}`);
+  const error = new Error(`Not Found - ${req.originalURL}`);
   res.status(404);
   next(error);
 };
@@ -18,6 +18,7 @@ const errorHandler = (err, req, res, next) => {
     message: message,
     stack: process.env.NODE_ENV === "production" ? "🍺" : err.stack,
   });
+  next();
 };
 
 export { notFound, errorHandler };
