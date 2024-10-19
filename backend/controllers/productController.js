@@ -5,9 +5,15 @@ import Product from "../models/productModel.js";
 // @route   GET/api/products
 // @access  Public
 const getProducts = asyncHandler(async (req, res) => {
-  const products = await Product.find();
+  const pageSize = 2;
+  const page = Number(req.query.pageNumber || 1);
+  const count = await Product.countDocuments();
 
-  res.json(products);
+  const products = await Product.find()
+    .limit(pageSize)
+    .skip((page - 1) * pageSize);
+
+  res.json({ products, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc    Fetch a product
@@ -117,7 +123,8 @@ const createProductReview = asyncHandler(async (req, res) => {
 
     product.numReviews = product.reviews.length;
     product.rating =
-  product.reviews.reduce((acc, review) => acc + review.rating, 0) / product.reviews.length;
+      product.reviews.reduce((acc, review) => acc + review.rating, 0) /
+      product.reviews.length;
 
     await product.save();
     res.status(201).json({
@@ -135,5 +142,5 @@ export {
   postProduct,
   updateProduct,
   deleteProduct,
-  createProductReview
+  createProductReview,
 };
