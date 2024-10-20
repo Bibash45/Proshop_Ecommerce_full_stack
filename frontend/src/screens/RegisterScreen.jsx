@@ -7,6 +7,7 @@ import Loader from "../components/Loader";
 import { useRegisterMutation } from "../slices/usersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { toast } from "react-toastify";
+import Meta from "../components/Meta";
 
 const RegisterScreen = () => {
   const [name, setName] = useState("");
@@ -47,7 +48,9 @@ const RegisterScreen = () => {
     }
   };
 
-  return (
+  return (<>
+   <Meta title="SastoBazaar - signup" />
+
     <FormContainer>
       <h1>Sign Up</h1>
 
@@ -111,6 +114,7 @@ const RegisterScreen = () => {
         </Col>
       </Row>
     </FormContainer>
+    </>
   );
 };
 

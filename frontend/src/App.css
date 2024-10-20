@@ -1,0 +1,10 @@
+.navbar .nav-link, 
+.navbar .dropdown-toggle {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-center {
+  display: flex;
+  align-items: center;
+}

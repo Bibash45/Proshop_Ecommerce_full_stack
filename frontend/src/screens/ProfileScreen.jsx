@@ -9,6 +9,7 @@ import { useGetMyOrdersQuery } from "../slices/ordersApiSlice";
 import { setCredentials } from "../slices/authSlice";
 import { FaTimes } from "react-icons/fa";
 import { LinkContainer } from "react-router-bootstrap";
+import Meta from "../components/Meta";
 
 const ProfileScreen = () => {
   const dispatch = useDispatch();
@@ -57,7 +58,9 @@ const ProfileScreen = () => {
     }
   };
 
-  return (
+  return (<>
+    <Meta title="SastoBazaar - your orders" />
+
     <Row>
       <Col md={3}>
         <h2>User Profile</h2>
@@ -175,6 +178,7 @@ const ProfileScreen = () => {
         )}
       </Col>
     </Row>
+    </>
   );
 };
 
