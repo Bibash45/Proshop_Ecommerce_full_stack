@@ -73,6 +73,7 @@ const CartScreen = () => {
                       type="button"
                       variant="light"
                       onClick={() => removeFromCartHandler(item._id)}
+                      className="p-1"
                     >
                       <FaTrash />
                     </Button>
