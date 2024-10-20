@@ -7,6 +7,7 @@ import Message from "../components/Message";
 import { useGetProductsQuery } from "../slices/productsApiSlice";
 import Paginate from "../components/Paginate";
 import ProductCarousel from "../components/ProductCarousel";
+import Meta from "../components/Meta";
 
 const HomeScreen = () => {
   const { pageNumber = 1, keyword = "" } = useParams();
@@ -17,6 +18,7 @@ const HomeScreen = () => {
 
   return (
     <>
+    <Meta title="SastoBazaar" />
       {!keyword ? (
         <ProductCarousel />
       ) : (

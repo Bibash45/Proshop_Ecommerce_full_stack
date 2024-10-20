@@ -7,6 +7,7 @@ const Meta = ({ title, description, keywords }) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      <link rel="shortcut icon" href="./images/logo2.png" />
     </Helmet>
   );
 };
