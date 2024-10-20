@@ -8,6 +8,7 @@ import { LinkContainer } from "react-router-bootstrap";
 import { useLogoutMutation } from "../slices/usersApiSlice";
 import { logout } from "../slices/authSlice";
 import SearchBox from "./SearchBox";
+import { resetCart } from "../slices/cartSlice";
 
 const Header = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -22,6 +23,7 @@ const Header = () => {
     try {
       await logoutApiCall().unwrap();
       dispatch(logout());
+      dispatch(resetCart());
       navigate("/login");
     } catch (error) {
       console.error(error);
@@ -34,11 +36,19 @@ const Header = () => {
         <Container>
           <LinkContainer to="/">
             <Navbar.Brand>
-            <div className="d-flex align-items-center">
-                <img src={logo} alt="SastoBazaar" style={{ width: "50px", marginRight: "10px" }} />
+              <div className="d-flex align-items-center">
+                <img
+                  src={logo}
+                  alt="SastoBazaar"
+                  style={{ width: "50px", marginRight: "10px" }}
+                />
                 <span className="pt-2">
-                  <span style={{ color: "brown", fontWeight: "bold" }}>Sasto</span>
-                  <span style={{ color: "blue", fontWeight: "500" }}>Bazaar</span>
+                  <span style={{ color: "brown", fontWeight: "bold" }}>
+                    Sasto
+                  </span>
+                  <span style={{ color: "blue", fontWeight: "500" }}>
+                    Bazaar
+                  </span>
                 </span>
               </div>
             </Navbar.Brand>
