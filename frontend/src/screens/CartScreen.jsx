@@ -13,6 +13,7 @@ import {
 import { FaTrash } from "react-icons/fa";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../slices/cartSlice";
+import Meta from "../components/Meta";
 
 const CartScreen = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,8 @@ const CartScreen = () => {
   };
 
   return (
+    <>
+    <Meta title="SastoBazaar - cart" />
     <Row>
       <Col md={8}>
         <h1 style={{ marginBottom: "20px" }}>Shopping Cart</h1>
@@ -110,6 +113,7 @@ const CartScreen = () => {
         </Card>
       </Col>
     </Row>
+    </>
   );
 };
 
