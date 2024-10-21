@@ -2,6 +2,7 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Rating from "./Rating";
+// import { BASE_URL } from "../constants";
 
 const Product = ({ product }) => {
   return (
